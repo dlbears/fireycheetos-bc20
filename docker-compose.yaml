@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    bcBuilder:
+        volumes:
+            - '/tmp/.X11-unix:/tmp/.X11-unix'
+            - '$PWD:/usr/src/myapp'
+        container_name: bc_builder
+        command: ["bash", "-c", "cd ./client && chmod -R 4755 ./chrome-sandbox && su derp -c ./battlecode-visualizer"]
+        environment:
+            - DISPLAY=unix$DISPLAY
+        devices:
+            - /dev/dri
+        image: 'dlbears/bc20:latest'
