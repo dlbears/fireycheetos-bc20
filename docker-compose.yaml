@@ -1,17 +1,18 @@
 version: '3.3'
 services:
     bcBuilder:
+      image: 'dlbears/bc20:latest'
+      container_name: bc_builder
       cap_add: 
         - SYS_ADMIN
       volumes:
-        - '/tmp/.X11-unix:/tmp/.X11-unix'
         - '$PWD/src:/usr/src/myapp/src'
-      container_name: bc_builder
+        - '/tmp/.X11-unix:/tmp/.X11-unix'   
+      environment:
+        - DISPLAY=unix$DISPLAY #for MacOS, DISPLAY=${HOSTNAME}:0
+      devices:
+        - /dev/dri
       command: sh -c " 
         cd ./client 
         && su derp -c ./battlecode-visualizer"
-      environment:
-        - DISPLAY=unix$DISPLAY
-      devices:
-        - /dev/dri
-      image: 'dlbears/bc20:latest'
+      
