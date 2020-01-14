@@ -1,13 +1,14 @@
 # Run with Docker
 
-- Dependencies:
+- ## Dependencies:
     - `docker` 
     - `docker-compose`
+    - non-Linux hosts, X11 server
 
-- Run
+- ## Run:
     - `cd` to the project folder then `docker-compose up` (should launch the GUI)
 
-- troubleshooting
+- ## Troubleshooting:
     ### GUI
     1. make sure X11 allows incoming connections: `xhost +` (for Mac*, `xhost + ${HOSTNAME}`)
     2. check `docker-compose.yaml`
