@@ -1,3 +1,21 @@
+# Run with Docker
+
+- Dependencies:
+    - `docker` 
+    - `docker-compose`
+
+- Run
+    - `cd` to the project folder then `docker-compose up` (should launch the GUI)
+
+- troubleshooting
+    ### GUI
+    1. make sure X11 allows incoming connections: `xhost +` (for Mac*, `xhost + ${HOSTNAME}`)
+    2. check `docker-compose.yaml`
+    References: 
+        - * [Forwarding X11 gist, with XQuartz](https://gist.github.com/cschiewek/246a244ba23da8b9f0e7b11a68bf3285)
+        - * [How to run GUI docker apps on MacOS Host](https://iamhow.com/How_To/Docker_How_To.html)
+    
+
 # Battlecode 2020 Scaffold
 
 This is the Battlecode 2020 scaffold, containing an `examplefuncsplayer`. Read https://2020.battlecode.org/getting-started!
