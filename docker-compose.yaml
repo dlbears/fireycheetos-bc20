@@ -12,7 +12,9 @@ services:
         - DISPLAY=unix$DISPLAY #for MacOS, DISPLAY=${HOSTNAME}:0
       devices:
         - /dev/dri
-      command: sh -c " 
-        cd ./client 
+      command: sh -c "
+        ./gradlew update
+        && ./gradlew build 
+        && cd ./client 
         && su derp -c ./battlecode-visualizer"
       
