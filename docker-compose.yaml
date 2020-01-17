@@ -13,7 +13,9 @@ services:
       devices:
         - /dev/dri
       command: sh -c "
-        ./gradlew update
+        chown root:root -R ./src
+        && chmod -R 777 ./src
+        && ./gradlew update
         && ./gradlew build 
         && cd ./client 
         && su derp -c ./battlecode-visualizer"
